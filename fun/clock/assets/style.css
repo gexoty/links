@@ -5,7 +5,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    background: #1e3c72;
 }
 
 .clock-container {
