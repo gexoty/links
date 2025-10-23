@@ -1,0 +1,218 @@
+:root {
+  --accent: #a55fff;
+  --bg1: #1c1c1c;
+  --bg2: #1c1c1c;
+  --text: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text);
+  overflow-x: hidden;
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Анимированный фон */
+
+.bg-glow {
+  position: fixed;
+  width: 140vw;
+  height: 140vh;
+  background: radial-gradient(circle at 30% 50%, rgba(0, 128, 255, 0.1), transparent 60%),
+              radial-gradient(circle at 70% 40%, rgba(255, 0, 128, 0.1), transparent 60%);
+  filter: blur(90px);
+  z-index: 0;
+  animation: pulse 10s infinite alternate ease-in-out;
+}
+
+
+@keyframes pulse {
+  from { transform: scale(1); opacity: 0.8; }
+  to { transform: scale(1.2); opacity: 1; }
+}
+
+/* Основной контейнер */
+.container {
+  z-index: 1;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* контейнер для аватарки*/
+.avatar-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  z-index: 1;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: center;
+  z-index: 2;     
+  display: block;
+}
+
+
+@keyframes glowPulse {
+  from { box-shadow: 0 0 15px rgba(165, 95, 255, 0.3); }
+  to { box-shadow: 0 0 25px rgba(165, 95, 255, 0.6); }
+}
+
+.nickname {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.bio {
+  opacity: 0.8;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Секции кнопок */
+.btn-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 0.9rem;
+  opacity: 0.5;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Кнопки */
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pc-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: block;
+  padding: 12px 18px;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(165, 95, 255, 0.4);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Неоновое переливание */
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg,
+    transparent,
+    rgba(165,95,255,0.15),
+    transparent);
+  transition: all 0.6s ease;
+}
+
+.btn:hover::after {
+  left: 100%;
+}
+
+/* Адаптивность для мобилок */
+@media (max-width: 600px) {
+  .nickname { font-size: 1.5rem; }
+  .btn { font-size: 14px; padding: 10px 14px; }
+}
+
+footer {
+  z-index: 1;
+  text-align: center;
+  opacity: 0.4;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;  /* перенос */
+    gap: 1px;           /* расстояние между иконками, уменьшаем с 12px */
+    margin-bottom: 40px; /* пространство до следующего блока */
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #fff;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.social-icons a::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 12px;
+    background: radial-gradient(circle, rgba(165,95,255,0.4), transparent 70%);
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.social-icons a:hover::before {
+    opacity: 1;
+}
+
+.social-icons a:hover {
+    transform: translateY(-2px);
+}
+
+.social-icons a:active {
+    transform: translateY(2px) scale(0.97);
+}
