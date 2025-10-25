@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Обратный отсчёт</title>
+<style>
+  :root {
+    --accent: #a55fff;
+    --bg: #0a0a0a;
+    --text: #fff;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #1c1c1c 0%, var(--bg) 100%);
+    color: var(--text);
+  }
+
+  #timer {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 0 0 10px var(--accent);
+    color: var(--accent);
+    user-select: none;
+  }
+
+  @media (max-width: 600px) {
+    #timer {
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div id="timer">—</div>
+
+<script>
+  // === Укажи дату (с часовым поясом, если нужно) ===
+  const targetDate = new Date("2026-12-31T12:00:00+03:00"); // UTC+3 (Москва)
+
+  function updateTimer() {
+    const now = new Date();
+    let diff = targetDate - now;
+
+    if (diff <= 0) {
+      document.getElementById("timer").textContent = "00:00:00:00:00:00";
+      clearInterval(interval);
+      return;
+    }
+
+    const sec = Math.floor(diff / 1000) % 60;
+    const min = Math.floor(diff / (1000 * 60)) % 60;
+    const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    const years = Math.floor(days / 365);
+    const months = Math.floor((days % 365) / 30);
+    const daysLeft = days - years * 365 - months * 30;
+
+    document.getElementById("timer").textContent =
+      `${years}г ${months}м ${daysLeft}д ` +
+      `${hours.toString().padStart(2, "0")}:` +
+      `${min.toString().padStart(2, "0")}:` +
+      `${sec.toString().padStart(2, "0")}`;
+  }
+
+  const interval = setInterval(updateTimer, 1000);
+  updateTimer();
+</script>
+</body>
+</html>
