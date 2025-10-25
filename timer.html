@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Дней До Дембеля — Gexoty</title>
+<title>Таймер | Gexoty</title>
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="stylesheet" href="assets/style.css">
 <style>
@@ -50,7 +50,7 @@
 </head>
 <body>
 
-  <h1>Дней До Дембеля</h1>
+  <h1>До возвращения из армии</h1>
 
   <div id="timer">—</div>
 
@@ -83,9 +83,9 @@
     const daysLeft = days - years * 365 - months * 30;
 
     document.getElementById("timer").textContent =
-      `${years.toString().padStart(2,"0")}:` +
-      `${months.toString().padStart(2,"0")}:` +
-      `${daysLeft.toString().padStart(2,"0")}:` +
+      `${years.toString().padStart(2,"0")}г ` +
+      `${months.toString().padStart(2,"0")}м ` +
+      `${daysLeft.toString().padStart(2,"0")}д ` +
       `${hours.toString().padStart(2,"0")}:` +
       `${min.toString().padStart(2,"0")}:` +
       `${sec.toString().padStart(2,"0")}`;
