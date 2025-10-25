@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Обратный отсчёт</title>
+<link rel="icon" href="assets/logo.png" type="image/png">
 <style>
   :root {
     --accent: #a55fff;
@@ -47,8 +48,7 @@
   <div id="timer">—</div>
 
 <script>
-  // === Укажи дату (с часовым поясом, если нужно) ===
-  const targetDate = new Date("2026-12-31T12:00:00+03:00"); // UTC+3 (Москва)
+  const targetDate = new Date("2026-12-31T12:00:00+03:00");
 
   function updateTimer() {
     const now = new Date();
