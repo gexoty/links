@@ -2,53 +2,66 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Обратный отсчёт</title>
-<link rel="icon" href="assets/logo.png" type="image/png">
+<title>Дней До Дембеля — Gexoty</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="assets/style.css">
 <style>
-  :root {
-    --accent: #a55fff;
-    --bg: #0a0a0a;
-    --text: #fff;
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Segoe UI", sans-serif;
-  }
-
   body {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(circle at center, #1c1c1c 0%, var(--bg) 100%);
-    color: var(--text);
+    background: radial-gradient(circle at center, #1c1c1c 0%, #0a0a0a 100%);
+    color: #fff;
+    gap: 40px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: #a55fff;
+    text-shadow: 0 0 10px rgba(165, 95, 255, 0.5);
+    letter-spacing: 1px;
   }
 
   #timer {
     font-size: 2.5rem;
     letter-spacing: 2px;
     text-align: center;
-    text-shadow: 0 0 10px var(--accent);
-    color: var(--accent);
+    text-shadow: 0 0 10px #a55fff;
+    color: #a55fff;
     user-select: none;
   }
 
   @media (max-width: 600px) {
-    #timer {
+    h1 {
       font-size: 1.5rem;
-      letter-spacing: 1px;
     }
+    #timer {
+      font-size: 1.6rem;
+    }
+  }
+
+  .btn-section {
+    display: flex;
+    justify-content: center;
   }
 </style>
 </head>
 <body>
+
+  <h1>Дней До Дембеля</h1>
+
   <div id="timer">—</div>
 
+  <section class="btn-section">
+    <div class="btn-group">
+      <a href="/" class="btn">Мои Ссылки</a>
+    </div>
+  </section>
+
 <script>
-  const targetDate = new Date("2026-12-31T12:00:00+03:00");
+  const targetDate = new Date("2026-12-31T00:00:00+03:00");
 
   function updateTimer() {
     const now = new Date();
@@ -70,10 +83,12 @@
     const daysLeft = days - years * 365 - months * 30;
 
     document.getElementById("timer").textContent =
-      `${years}г ${months}м ${daysLeft}д ` +
-      `${hours.toString().padStart(2, "0")}:` +
-      `${min.toString().padStart(2, "0")}:` +
-      `${sec.toString().padStart(2, "0")}`;
+      `${years.toString().padStart(2,"0")}:` +
+      `${months.toString().padStart(2,"0")}:` +
+      `${daysLeft.toString().padStart(2,"0")}:` +
+      `${hours.toString().padStart(2,"0")}:` +
+      `${min.toString().padStart(2,"0")}:` +
+      `${sec.toString().padStart(2,"0")}`;
   }
 
   const interval = setInterval(updateTimer, 1000);
