@@ -1,77 +1,96 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gexoty</title>
-  <link rel="icon" href="assets/logo.png" type="image/png">
-  <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="UTF-8">
+<title>Таймер | Gexoty</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #1c1c1c 0%, #0a0a0a 100%);
+    color: #fff;
+    gap: 40px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: #a55fff;
+    text-shadow: 0 0 10px rgba(165, 95, 255, 0.5);
+    letter-spacing: 1px;
+  }
+
+  #timer {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 0 0 10px #a55fff;
+    color: #a55fff;
+    user-select: none;
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+    #timer {
+      font-size: 1.6rem;
+    }
+  }
+
+  .btn-section {
+    display: flex;
+    justify-content: center;
+  }
+</style>
 </head>
 <body>
 
-  <div class="bg-glow"></div>
+  <h1>До возвращения из армии</h1>
 
-  <main class="container">
-      <div class="avatar-wrapper">
-      <img src="assets/logo.png" alt="Avatar" class="avatar">
-      </div>
+  <div id="timer">—</div>
 
-    <h1 class="nickname">Gexoty</h1>
-    <p class="bio">
-      Привет! Я Гекс. Самый обычный пользователь интернета!
-    </p>
+  <section class="btn-section">
+    <div class="btn-group">
+      <a href="/links.html" class="btn">Мои Ссылки</a>
+    </div>
+  </section>
 
-    <section>
-      <div class="social-icons">
-      <a class="telegram" href="https://t.me/gexoty" target="_blank"><i class="fa-brands fa-telegram fa-2x fa-fw"></i></a>
-		  <a class="github" href="https://github.com/gexoty" target="_blank"><i class="fa-brands fa-github fa-2x fa-fw"></i></a>
-		  <a class="steam" href="https://steamcommunity.com/id/gexoty/" target="_blank"><i class="fa-brands fa-steam fa-2x fa-fw"></i></a>
-	    <a class="reddit" href="https://www.reddit.com/user/gexoty05/" target="_blank"><i class="fa-brands fa-reddit fa-2x fa-fw"></i></a>
-		  <a class="youtube" href="https://www.youtube.com/@gexoty" target="_blank"><i class="fa-brands fa-youtube fa-2x fa-fw"></i></a>
-		  <a class="twitch" href="https://twitch.tv/gexoty" target="_blank"><i class="fa-brands fa-twitch fa-2x fa-fw"></i></a>
-		  <a class="discord" href="https://discord.com/invite/yKrTnpx568" target="_blank"><i class="fa-brands fa-discord fa-2x fa-fw"></i></a>
-		  <a class="tiktok" href="https://www.tiktok.com/@gexoty05" target="_blank"><i class="fa-brands fa-tiktok fa-2x fa-fw"></i></a>
-		  <a class="twitter" href="https://x.com/Gexoty5733" target="_blank"><i class="fa-brands fa-twitter fa-2x fa-fw"></i></a>
-      </div>
-    </section>
+<script>
+  const targetDate = new Date("2026-12-31T00:12:00+03:00");
 
-    <section class="btn-section">
-      <h2 class="section-title">Иные соцсети и где я вообще есть</h2>
-      <div class="btn-group">
-        <a href="https://matrix.to/#/@gexoty:gexoty.com" target="_blank" class="btn">Matrix.org</a>
-        <a href="https://vrchat.com/home/user/usr_60b2c967-24ee-4959-b3fc-3566a82de99d" target="_blank" class="btn">VRChat</a>
-        <a href="https://osu.ppy.sh/users/32897989" target="_blank" class="btn">osu!</a>
-        <a href="https://4pda.to/forum/index.php?showuser=9031045" target="_blank" class="btn">4pda</a>
-        <a href="https://www.furaffinity.net/user/gexoty" target="_blank" class="btn" class="btn">FurAffinity</a>
-        <a href="https://barq.app/@gexoty" target="_blank" class="btn" class="btn">BARQ!</a>
-      </div>
-    </section>
+  function updateTimer() {
+    const now = new Date();
+    let diff = targetDate - now;
 
-    <section class="btn-section">
-      <h2 class="section-title">Информация</h2>
-      <div class="btn-group">
-        <a href="/pc.html" class="btn">Мой ПК</a>
-        <a href="https://mynickname.com/gexoty" target="_blank" class="btn">Сертификат на никнейм</a>
-        <a href="/timer.html" target="_blank" class="btn">Обратный отсчет</a>
-      </div>
-    </section>
+    if (diff <= 0) {
+      document.getElementById("timer").textContent = "00:00:00:00:00:00";
+      clearInterval(interval);
+      return;
+    }
 
-    <section class="btn-section">
-      <h2 class="section-title">Сервисы</h2>
-      <div class="btn-group">
-        <a href="https://vrc.gexoty.com" target="_blank" class="btn">Медиа-Архив для VRChat</a>
-        <a href="https://gallery.gexoty.com" target="_blank" class="btn">Моя Галерея VRChat</a>
-        <a href="https://ftp.gexoty.com" target="_blank" class="btn">Мой FTP</a>
-        <a href="https://adofai.gexoty.com" target="_blank" class="btn">Unofficial ADOFAI Levels Repo</a>
-        <a href="https://status.gxt.su" target="_blank" class="btn">Статус серверов (Uptime)</a>
-        <a href="https://t.me/gxvless" target="_blank" class="btn">Vless ключи от Gexoty</a>
-      </div>
-    </section>
-  <footer>
-    © 2025 Gexoty
-  </footer>  
-</main>
+    const sec = Math.floor(diff / 1000) % 60;
+    const min = Math.floor(diff / (1000 * 60)) % 60;
+    const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    const years = Math.floor(days / 365);
+    const months = Math.floor((days % 365) / 30);
+    const daysLeft = days - years * 365 - months * 30;
+
+    document.getElementById("timer").textContent =
+      `${years}г ${months}м ${daysLeft}д ` +
+      `${hours.toString().padStart(2, "0")}:` +
+      `${min.toString().padStart(2, "0")}:` +
+      `${sec.toString().padStart(2, "0")}`;
+  }
+
+  const interval = setInterval(updateTimer, 1000);
+  updateTimer();
+</script>
 </body>
 </html>
