@@ -1,61 +1,82 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gexoty | Мой ПК</title>
-  <link rel="icon" href="assets/logo.png" type="image/png">
-  <link rel="stylesheet" href="assets/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gexoty | Мой ПК</title>
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+    <div class="bg-glow"></div>
+    <main class="container">
+        <header>
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-chevron-left"></i> Вернуться</a>
+            <h1 class="nickname">Мой Setup</h1>
+            <p class="bio">Полная конфигурация моего пк и периферии</p>
+        </header>
 
-  <div class="bg-glow"></div>
+        <h2 class="section-title">Характеристики ПК</h2>
+        <div class="bento-grid">
+            <div class="bento-item">
+                <div class="label"><i class="fa-solid fa-microchip"></i> Процессор</div>
+                <div class="val">Intel Xeon E5 2680v3<br><small>12/24 ядер @ 3.3GHz</small></div>
+            </div>
+            <div class="bento-item">
+                <div class="label"><i class="fa-solid fa-video"></i> Видеокарта</div>
+                <div class="val">NVIDIA RTX 3050 8GB<br><small>OC Edition</small></div>
+            </div>
+            <div class="bento-item">
+                <div class="label"><i class="fa-solid fa-memory"></i> Память</div>
+                <div class="val">32GB DDR4<br><small>2133MHz (2x16GB)</small></div>
+            </div>
+            <div class="bento-item">
+                <div class="label"><i class="fa-solid fa-plug"></i> Блок питания</div>
+                <div class="val">Cougar STC 600<br><small>600W</small></div>
+            </div>
 
-  <main class="container">
-      <div class="avatar-wrapper">
-      <img src="assets/logo.png" alt="Avatar" class="avatar">
-      </div>
+            <div class="bento-item wide">
+                <div class="label"><i class="fa-solid fa-database"></i> Дисковое пространство</div>
+                <div class="storage-list">
+                    <div class="storage-sub"><span>NVMe M.2 (System)</span>Azerty 256GB</div>
+                    <div class="storage-sub"><span>SATA 2.5″</span>Apacer 512GB</div>
+                    <div class="storage-sub"><span>NVMe M.2</span>Kingston 250GB</div>
+                    <div class="storage-sub"><span>HDD 3.5″</span>Seagate 2TB (5900rpm)</div>
+                    <div class="storage-sub"><span>HDD 2.5″</span>Hitachi 320GB (7200rpm)</div>
+                </div>
+            </div>
+        </div>
 
-    <h1 class="nickname">Gexoty</h1>
-    <p class="bio">
-      Привет! Я Гекс. Самый обычный пользователь интернета!
-    </p>
-    <section class="pc-specs">
-      <h2 class="section-title">Характеристики пк</h2>
-      <div class="btn-group">
-        <div class="spec-item"><span class="spec-key">CPU:</span> Intel Xeon E5 2680v3 12/24 3.3GHz</div>
-        <div class="spec-item"><span class="spec-key">GPU:</span> NVIDIA RTX3050 8GB OC</div>
-        <div class="spec-item"><span class="spec-key">RAM:</span> 32GB DDR4 2133MHz 2*16GB</div>
-        <div class="spec-item"><span class="spec-key">SSD1:</span> Azerty NVMe M2 256GB</div>
-        <div class="spec-item"><span class="spec-key">SSD2:</span> Apacer SATA 2.5″ 512GB</div>
-		<div class="spec-item"><span class="spec-key">SSD3:</span> Kingston NVMe M2 250GB</div>
-        <div class="spec-item"><span class="spec-key">HDD1:</span> Seagate 3.5″ 2TB 5900rpm</div>
-		<div class="spec-item"><span class="spec-key">HDD2:</span> Hitachi 2.5″ 320GB 7200rpm</div>
-        <div class="spec-item"><span class="spec-key">БП:</span> Cougar STC 600 (600W)</div>
-      </div>
-    </section>
+        <h2 class="section-title">Периферия</h2>
+        <div class="bento-grid">
+            <div class="bento-item">
+                <div class="label"><i class="fa-solid fa-desktop"></i> Монитор 1</div>
+                <div class="val">Samsung S24D300 24″<br><small>1920×1080 @ 75Hz</small></div>
+            </div>
+            <div class="bento-item">
+                <div class="label"><i class="fa-solid fa-desktop"></i> Монитор 2</div>
+                <div class="val">Samsung SyncMaster 710T 17″<br><small>1280×1024 @ 75Hz</small></div>
+            </div>
+            <div class="bento-item wide">
+                <div class="label"><i class="fa-solid fa-headphones"></i> Звук и Микрофон</div>
+                <div class="val">Bloody J527<br><small>Игровая гарнитура</small></div>
+            </div>
+            <div class="bento-item">
+                <div class="label"><i class="fa-solid fa-keyboard"></i> Клавиатура</div>
+                <div class="val">Redragon Fizz k617 RGB<br><small>Mechanical 61%</small></div>
+            </div>
+            <div class="bento-item">
+                <div class="label"><i class="fa-solid fa-mouse"></i> Мышь</div>
+                <div class="val">Bloody v9m</div>
+            </div>
+            <div class="bento-item wide">
+                <div class="label"><i class="fa-solid fa-pen-nib"></i> Графический планшет</div>
+                <div class="val">XENX X1-640<br><small>Драйвер: OpenTabletDriver</small></div>
+            </div>
+        </div>
 
-    <section class="pc-specs">
-      <h2 class="section-title">Аксессуары и периферия</h2>
-      <div class="btn-group">
-        <div class="spec-item"><span class="spec-key">Монитор 1:</span> Samsung S24D300 24″ 75Hz 1920×1080</div>
-        <div class="spec-item"><span class="spec-key">Монитор 2:</span> Samsung SyncMaster 710T 17″ 75Hz 1280×1024</div>
-        <div class="spec-item"><span class="spec-key">Мышь:</span> Bloody v9m</div>
-        <div class="spec-item"><span class="spec-key">Клавиатура:</span> Redragon Fizz k617 RGB (61%)</div>
-        <div class="spec-item"><span class="spec-key">Наушники + Микрофон:</span> Bloody J527</div>
-        <div class="spec-item"><span class="spec-key">Графический планшет:</span> XENX X1-640 (OpenTabletDriver)</div>
-      </div>
-    </section>
-
-    <section class="btn-section">
-      <h2 class="section-title"></h2>
-      <div class="btn-group">
-        <a href="/" class="btn">Вернуться</a>
-      </div>
-    </section>
-  <footer>
-    © 2025 Gexoty
-  </footer>  
-</main>
+        <footer>© 2026 Gexoty</footer>
+    </main>
 </body>
 </html>
