@@ -10,7 +10,6 @@ async function updateLanyard() {
         const dot = document.getElementById('discord-status');
         const textElem = document.getElementById('status-text');
 
-        // Справочник базовых статусов
         const statusColors = {
             online: '#43b581',
             idle: '#faa61a',
@@ -28,7 +27,6 @@ async function updateLanyard() {
             dot.style.backgroundColor = statusColors[data.discord_status] || statusColors.offline;
         }
 
-        // Поиск активностей
         const activities = data.activities || [];
         const customStatus = activities.find(a => a.type === 4);
         const gameActivity = activities.find(a => a.type === 0);
@@ -40,7 +38,6 @@ async function updateLanyard() {
             finalStatus = `Играет в ${gameActivity.name}`;
         } 
         else if (musicActivity) {
-            // Берем details (трек) и state (исполнитель)
             const track = musicActivity.details || "трек";
             const artist = musicActivity.state || "исполнителя";
             finalStatus = `Слушает ${track} — ${artist}`;
@@ -58,9 +55,46 @@ async function updateLanyard() {
     }
 }
 
+function updateFooterInfo() {
+    const yearElem = document.getElementById('current-year');
+    const timeElem = document.getElementById('local-time');
+    
+    const now = new Date();
+    
+    if (yearElem) yearElem.innerText = now.getFullYear();
+    
+    if (timeElem) {
+        timeElem.innerText = now.toLocaleTimeString('ru-RU', {
+            timeZone: 'Europe/Moscow',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+    }
+}
+
+function initMouseGlow() {
+    const bgGlow = document.querySelector('.bg-glow');
+    if (!bgGlow) return;
+
+    window.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        bgGlow.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(165, 95, 255, 0.10), transparent 40%)`;
+    });
+}
+
+// ОДИН единственный запуск всех функций
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Статус Discord
     updateLanyard();
     setInterval(updateLanyard, 30000);
-    const footer = document.querySelector('footer');
-    if (footer) footer.textContent = `© ${new Date().getFullYear()} Gexoty`;
+
+    // 2. Время и год
+    updateFooterInfo();
+    setInterval(updateFooterInfo, 1000);
+
+    // 3. Свечение
+    initMouseGlow();
+    
+    console.log("Gexoty script initialized!");
 });
