@@ -9,84 +9,101 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+    <div class="splash-screen" id="splash-screen">
+        <img src="assets/logo.png" alt="Gexoty Logo" class="splash-logo">
+        <button class="splash-button" id="enter-button">Привет!</button>
+    </div>
+
     <div class="bg-glow"></div>
-    <main class="container">
-        <header>
-            <img src="assets/logo.png" alt="Avatar" class="avatar">
-            <h1 class="nickname">Gexoty</h1>
-            <p class="bio">Привет! Я Гекс. Самый обычный пользователь интернета!</p>
-            <div class="status-container">
-                <div id="discord-status" class="status-dot"></div>
-            <span id="status-text">Загрузка...</span>
+    <canvas id="constellationCanvas"></canvas>
+    <main class="container content-wrapper" id="main-content">
+        <div id="page-content">
+            <header class="stagger-item">
+                <img src="assets/logo.png" alt="Avatar" class="avatar">
+                <h1 class="nickname">Gexoty</h1>
+                <p class="bio">Привет! Я Гекс. Самый обычный пользователь интернета!</p>
+                <div class="status-container">
+                    <div id="discord-status" class="status-dot"></div>
+                    <span id="status-text">Загрузка...</span>
+                </div>
+            </header>
+
+            <div class="social-row stagger-item">
+                <a href="https://t.me/gexoty" target="_blank" class="social-link"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://github.com/gexoty" target="_blank" class="social-link"><i class="fa-brands fa-github"></i></a>
+                <a href="https://steamcommunity.com/id/gexoty/" target="_blank" class="social-link"><i class="fa-brands fa-steam"></i></a>
+                <a href="https://www.reddit.com/user/gexoty05/" target="_blank" class="social-link"><i class="fa-brands fa-reddit"></i></a>
+                <a href="https://www.youtube.com/@gexoty" target="_blank" class="social-link"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://twitch.tv/gexoty" target="_blank" class="social-link"><i class="fa-brands fa-twitch"></i></a>
+                <a href="https://discord.com/invite/yKrTnpx568" target="_blank" class="social-link"><i class="fa-brands fa-discord"></i></a>
+                <a href="https://www.tiktok.com/@gexoty05" target="_blank" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://x.com/Gexoty5733" target="_blank" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://bsky.app/profile/gexoty.com" target="_blank" class="social-link"><i class="fa-brands fa-bluesky"></i></a>
             </div>
-        </header>
 
-        <div class="social-row">
-            <a href="https://t.me/gexoty" target="_blank" class="social-link"><i class="fa-brands fa-telegram"></i></a>
-            <a href="https://github.com/gexoty" target="_blank" class="social-link"><i class="fa-brands fa-github"></i></a>
-            <a href="https://steamcommunity.com/id/gexoty/" target="_blank" class="social-link"><i class="fa-brands fa-steam"></i></a>
-            <a href="https://www.reddit.com/user/gexoty05/" target="_blank" class="social-link"><i class="fa-brands fa-reddit"></i></a>
-            <a href="https://www.youtube.com/@gexoty" target="_blank" class="social-link"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://twitch.tv/gexoty" target="_blank" class="social-link"><i class="fa-brands fa-twitch"></i></a>
-            <a href="https://discord.com/invite/yKrTnpx568" target="_blank" class="social-link"><i class="fa-brands fa-discord"></i></a>
-            <a href="https://www.tiktok.com/@gexoty05" target="_blank" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="https://x.com/Gexoty5733" target="_blank" class="social-link"><i class="fa-brands fa-twitter"></i></a>
-            <a href="https://bsky.app/profile/gexoty.com" target="_blank" class="social-link"><i class="fa-brands fa-bluesky"></i></a>
-        </div>
+            <h2 class="section-title stagger-item">Основное</h2>
+            <div class="bento-grid stagger-item">
+                <a href="#" onclick="loadPage('pc')" class="bento-item featured">
+                    <i class="fa-solid fa-desktop"></i>
+                    <span>Мой Setup</span>
+                    <p>Характеристики моего железа и периферии</p>
+                </a>
+                <a href="https://vless.gxt.su" target="_blank" class="bento-item featured">
+                    <i class="fa-solid fa-key"></i>
+                    <span>Vless ключи</span>
+                    <p>Доступ в интернет без ограничений</p>
+                </a>
+                <a href="https://status.gxt.su" target="_blank" class="bento-item wide">
+                    <i class="fa-solid fa-server"></i>
+                    <span>Статус серверов (Uptime)</span>
+                    <p>Мониторинг доступности моих сервисов в реальном времени</p>
+                </a>
+            </div>
 
-        <h2 class="section-title">Основное</h2>
-        <div class="bento-grid">
-            <a href="pc.html" class="bento-item featured">
-                <i class="fa-solid fa-desktop"></i>
-                <span>Мой Setup</span>
-                <p>Характеристики моего железа и периферии</p>
-            </a>
-            <a href="https://vless.gxt.su" target="_blank" class="bento-item featured">
-                <i class="fa-solid fa-key"></i>
-                <span>Vless ключи</span>
-                <p>Доступ в интернет без ограничений</p>
-            </a>
-            <a href="https://status.gxt.su" target="_blank" class="bento-item wide">
-                <i class="fa-solid fa-server"></i>
-                <span>Статус серверов (Uptime)</span>
-                <p>Мониторинг доступности моих сервисов в реальном времени</p>
-            </a>
-        </div>
+            <h2 class="section-title stagger-item">Сервисы и Информация</h2>
+            <div class="bento-grid stagger-item">
+                <a href="https://gallery.gexoty.com" target="_blank" class="bento-item "><i class="fa-solid fa-image"></i><span>Галерея VRChat</span></a>
+                <a href="https://vrc.gexoty.com" target="_blank" class="bento-item "><i class="fa-solid fa-box-archive"></i><span>Медиа-Архив VRC</span></a>
+                <a href="https://ftp.hornyfox.ru" target="_blank" class="bento-item "><i class="fa-solid fa-folder-open"></i><span>Мой FTP</span></a>
+                <a href="https://adofai.gexoty.com" target="_blank" class="bento-item "><i class="fa-solid fa-music"></i><span>ADOFAI Repo</span></a>
+                <a href="https://mynickname.com/gexoty" target="_blank" class="bento-item "><i class="fa-solid fa-certificate"></i><span>Никнейм</span></a>
+                <a href="https://music.hornyfox.ru" target="_blank" class="bento-item "><i class="fa-solid fa-music"></i><span>Мой Плейлист</span></a>
+                <a href="https://domains.gexoty.com" target="_blank" class="bento-item "><i class="fa-solid fa-link"></i><span>Мои Домены</span></a>
+                <a href="https://dalink.to/gexoty" target="_blank" class="bento-item wide featured "><i class="fa-solid fa-heart"></i><span>Поддержать меня (Донат)</span></a>
+            </div>
 
-        <h2 class="section-title">Сервисы и Информация</h2>
-        <div class="bento-grid">
-            <a href="https://gallery.gexoty.com" target="_blank" class="bento-item"><i class="fa-solid fa-image"></i><span>Галерея VRChat</span></a>
-            <a href="https://vrc.gexoty.com" target="_blank" class="bento-item"><i class="fa-solid fa-box-archive"></i><span>Медиа-Архив VRC</span></a>
-            <a href="https://ftp.hornyfox.ru" target="_blank" class="bento-item"><i class="fa-solid fa-folder-open"></i><span>Мой FTP</span></a>
-            <a href="https://adofai.gexoty.com" target="_blank" class="bento-item"><i class="fa-solid fa-music"></i><span>ADOFAI Repo</span></a>
-            <a href="https://mynickname.com/gexoty" target="_blank" class="bento-item"><i class="fa-solid fa-certificate"></i><span>Никнейм</span></a>
-            <a href="https://music.hornyfox.ru" target="_blank" class="bento-item"><i class="fa-solid fa-music"></i><span>Мой Плейлист</span></a>
-            <a href="https://domains.gexoty.com" target="_blank" class="bento-item"><i class="fa-solid fa-link"></i><span>Мои Домены</span></a>
-            <a href="https://dalink.to/gexoty" target="_blank" class="bento-item wide featured"><i class="fa-solid fa-heart"></i><span>Поддержать меня (Донат)</span></a>
-        </div>
+            <h2 class="section-title stagger-item">Иные сети и профили</h2>
+            <div class="mini-grid stagger-item">
+                <a href="https://matrix.to/#/@gexoty:gexoty.com" target="_blank" class="mini-item ">Matrix.org</a>
+                <a href="https://vrchat.com/home/user/usr_60b2c967-24ee-4959-b3fc-3566a82de99d" target="_blank" class="mini-item ">VRChat</a>
+                <a href="https://osu.ppy.sh/users/32897989" target="_blank" class="mini-item ">osu!</a>
+                <a href="https://4pda.to/forum/index.php?showuser=9031045" target="_blank" class="mini-item ">4pda</a>
+                <a href="https://www.furaffinity.net/user/gexoty" target="_blank" class="mini-item ">FurAffinity</a>
+                <a href="https://barq.app/@gexoty" target="_blank" class="mini-item ">BARQ!</a>
+                <a href="https://beatleader.com/u/76561199160591160" target="_blank" class="mini-item ">BeatLeader</a>
+                <a href="https://ru.namemc.com/profile/Gexoty.1" target="_blank" class="mini-item ">NameMC</a>
+            </div>
 
-        <h2 class="section-title">Иные сети и профили</h2>
-        <div class="mini-grid">
-            <a href="https://matrix.to/#/@gexoty:gexoty.com" target="_blank" class="mini-item">Matrix.org</a>
-            <a href="https://vrchat.com/home/user/usr_60b2c967-24ee-4959-b3fc-3566a82de99d" target="_blank" class="mini-item">VRChat</a>
-            <a href="https://osu.ppy.sh/users/32897989" target="_blank" class="mini-item">osu!</a>
-            <a href="https://4pda.to/forum/index.php?showuser=9031045" target="_blank" class="mini-item">4pda</a>
-            <a href="https://www.furaffinity.net/user/gexoty" target="_blank" class="mini-item">FurAffinity</a>
-            <a href="https://barq.app/@gexoty" target="_blank" class="mini-item">BARQ!</a>
-            <a href="https://beatleader.com/u/76561199160591160" target="_blank" class="mini-item">BeatLeader</a>
-            <a href="https://ru.namemc.com/profile/Gexoty.1" target="_blank" class="mini-item">NameMC</a>
-        </div>
-
-        <h2 class="section-title">Интересное</h2>
-        <div class="bento-grid">
-            <a href="http://youtube.com/watch?v=xvFZjo5PgG0" target="_blank" class="bento-item"><span>Точно не рикролл</span></a>
-            <a href="https://gallery.gexoty.com/pictures/2025.09/VRChat_2025-09-26_01-35-54.294_1920x1080.png" target="_blank" class="bento-item"><span>Биба и Боба</span></a>
+            <h2 class="section-title stagger-item">Интересное</h2>
+            <div class="bento-grid stagger-item">
+                <a href="http://youtube.com/watch?v=xvFZjo5PgG0" target="_blank" class="bento-item"><span>Точно не рикролл</span></a>
+                <a href="https://gallery.gexoty.com/pictures/2025.09/VRChat_2025-09-26_01-35-54.294_1920x1080.png" target="_blank" class="bento-item"><span>Биба и Боба</span></a>
+            </div>
         </div>
 
         <footer>
             © <span id="current-year"></span> Gexoty • <i class="fa-regular fa-clock"></i> <span id="local-time">00:00</span> (MSK)
         </footer>
-            </main>
+
+        <audio id="bg-music" loop>
+            <source src="assets/music.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="music-control" id="music-toggle">
+            <i class="fa-solid fa-volume-xmark" id="music-icon"></i>
+        </div>
+    </main>
+
     <script src="assets/script.js"></script>
 </body>
 </html>
