@@ -31,7 +31,8 @@
           { "type": "small", "icon": "fa-desktop", "label": "Монитор 1", "val": "Samsung S24D300 24″", "small": "1920×1080 @ 75Hz" },
           { "type": "small", "icon": "fa-desktop", "label": "Монитор 2", "val": "Samsung SyncMaster 710T 17″", "small": "1280×1024 @ 75Hz" },
           { "type": "small", "icon": "fa-desktop", "label": "Монитор 3", "val": "ViewSonic VA926 19″", "small": "1280×1024 @ 75Hz" },
-          { "type": "small", "icon": "fa-headphones", "label": "Звук и Микрофон", "val": "Bloody J527", "small": "Игровая гарнитура" },
+          { "type": "small", "icon": "fa-headphones", "label": "Звук", "val": "Bloody J527", "small": "Игровая гарнитура" },
+          { "type": "small", "icon": "fa-microphone", "label": "Микрофон", "val": "Maono AU-PM401", "small": "Конденсаторный USB Микрофон" },
           { "type": "small", "icon": "fa-keyboard", "label": "Клавиатура", "val": "Redragon Fizz k617 RGB", "small": "Mechanical 61%" },
           { "type": "small", "icon": "fa-mouse", "label": "Мышь", "val": "Bloody v9m" },
           { "type": "wide", "icon": "fa-pen-nib", "label": "Графический планшет", "val": "XENX X1-640", "small": "Драйвер: OpenTabletDriver" }

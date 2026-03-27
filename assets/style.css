@@ -113,10 +113,10 @@ footer { text-align: center; margin-top: 60px; color: var(--text-dim); font-size
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -2; /* Ниже, чем bg-glow (-1), но выше фона body */
-    pointer-events: none; /* Чтобы не мешал кликам */
-    opacity: 0.15; /* Легкая прозрачность, чтобы не отвлекало */
-    filter: blur(0.5px); /* Очень легкое размытие, чтобы выглядело мягче */
+    z-index: -2; 
+    pointer-events: none; 
+    opacity: 0.15; 
+    filter: blur(0.5px); 
 }
 
 @media (max-width: 550px) { .bento-grid { grid-template-columns: 1fr; } .bento-item.wide { grid-column: span 1; } }
