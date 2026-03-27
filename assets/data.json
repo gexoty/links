@@ -35,7 +35,7 @@
           { "type": "small", "icon": "fa-microphone", "label": "Микрофон", "val": "Maono AU-PM401", "small": "Конденсаторный USB Микрофон" },
           { "type": "small", "icon": "fa-keyboard", "label": "Клавиатура", "val": "Redragon Fizz k617 RGB", "small": "Mechanical 61%" },
           { "type": "small", "icon": "fa-mouse", "label": "Мышь", "val": "Bloody v9m" },
-          { "type": "wide", "icon": "fa-pen-nib", "label": "Графический планшет", "val": "XENX X1-640", "small": "Драйвер: OpenTabletDriver" }
+          { "type": "small", "icon": "fa-pen-nib", "label": "Графический планшет", "val": "XENX X1-640", "small": "Драйвер: OpenTabletDriver" }
         ]
       }
     ]
