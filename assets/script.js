@@ -148,40 +148,8 @@ function initMouseGlow() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const splash = document.getElementById('splash-screen');
-    const enterBtn = document.getElementById('enter-button');
-    const mainContent = document.getElementById('main-content');
-    const music = document.getElementById('bg-music');
-    const musicBtn = document.getElementById('music-toggle');
-    const musicIcon = document.getElementById('music-icon');
-
-    music.volume = 0.3;
-
-    enterBtn.addEventListener('click', () => {
-    window.scrollTo(0, 0); 
-    
-    splash.classList.add('hidden');
-    mainContent.classList.add('active');
-    
-    music.play().catch(() => {});
-    musicIcon.classList.replace('fa-volume-xmark', 'fa-volume-high');
-    musicBtn.classList.add('music-playing');
-    
+    // Контент анимируется и выводится сразу, без ожидания клика на сплэш
     applyStaggerAnimation();
-    });
-
-    musicBtn.addEventListener('click', () => {
-        if (music.paused) {
-            music.play();
-            musicIcon.classList.replace('fa-volume-xmark', 'fa-volume-high');
-            musicBtn.classList.add('music-playing');
-        } else {
-            music.pause();
-            musicIcon.classList.replace('fa-volume-high', 'fa-volume-xmark');
-            musicBtn.classList.remove('music-playing');
-        }
-    });
-
     updateLanyard();
     setInterval(updateLanyard, 30000);
     updateFooterInfo();
@@ -192,59 +160,51 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- Canvas Constellation Animation ---
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('constellationCanvas');
-    if (!canvas) return; // Выходим, если canvas не найден
+    if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
     let W, H;
     let particles = [];
-    const maxParticles = 80; // Максимальное количество частиц
-    const particleSize = 1.5; // Размер точек
-    const lineDistance = 120; // Максимальное расстояние для соединения линий
-    const particleSpeed = 0.2; // Скорость движения частиц
+    const maxParticles = 80; 
+    const particleSize = 1.5; 
+    const lineDistance = 120; 
+    const particleSpeed = 0.2; 
 
-    // Цвет из переменной CSS --accent
     const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
 
-    // Обновление размеров Canvas при изменении окна
     function resizeCanvas() {
         W = canvas.width = window.innerWidth;
         H = canvas.height = window.innerHeight;
     }
 
-    // Создание частиц
     function createParticles() {
         for (let i = 0; i < maxParticles; i++) {
             particles.push({
                 x: Math.random() * W,
                 y: Math.random() * H,
-                vx: (Math.random() - 0.5) * particleSpeed, // Случайная скорость по X
-                vy: (Math.random() - 0.5) * particleSpeed  // Случайная скорость по Y
+                vx: (Math.random() - 0.5) * particleSpeed, 
+                vy: (Math.random() - 0.5) * particleSpeed  
             });
         }
     }
 
-    // Отрисовка частиц и линий
     function draw() {
-        ctx.clearRect(0, 0, W, H); // Очищаем весь Canvas
+        ctx.clearRect(0, 0, W, H); 
 
         for (let i = 0; i < maxParticles; i++) {
             const p1 = particles[i];
 
-            // Рисуем частицу
             ctx.beginPath();
             ctx.arc(p1.x, p1.y, particleSize, 0, Math.PI * 2);
-            ctx.fillStyle = accentColor; // Используем accent цвет для точек
+            ctx.fillStyle = accentColor; 
             ctx.fill();
 
-            // Обновляем позицию частицы
             p1.x += p1.vx;
             p1.y += p1.vy;
 
-            // Отталкивание от границ (перемещение на противоположную сторону)
             if (p1.x < 0 || p1.x > W) p1.x = (p1.x < 0) ? W : 0;
             if (p1.y < 0 || p1.y > H) p1.y = (p1.y < 0) ? H : 0;
             
-            // Соединяем частицы линиями
             for (let j = i + 1; j < maxParticles; j++) {
                 const p2 = particles[j];
                 const distance = Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
@@ -253,21 +213,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     ctx.beginPath();
                     ctx.moveTo(p1.x, p1.y);
                     ctx.lineTo(p2.x, p2.y);
-                    // Прозрачность линии зависит от расстояния
                     ctx.strokeStyle = `rgba(165, 95, 255, ${1 - (distance / lineDistance) * 0.7})`; 
-                    ctx.lineWidth = 0.7; // Толщина линии
+                    ctx.lineWidth = 0.7; 
                     ctx.stroke();
                 }
             }
         }
-        requestAnimationFrame(draw); // Запрашиваем следующий кадр анимации
+        requestAnimationFrame(draw); 
     }
 
-    // Инициализация
     resizeCanvas();
     createParticles();
     draw();
 
-    // Обработчик изменения размера окна
     window.addEventListener('resize', resizeCanvas);
 });
