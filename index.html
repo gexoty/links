@@ -20,8 +20,35 @@
                 <h1 class="nickname">Gexoty</h1>
                 <p class="bio">Привет! Я Гекс. Самый обычный пользователь интернета!</p>
                 <div class="status-container">
-                    <div id="discord-status" class="status-dot"></div>
-                    <span id="status-text">Загрузка...</span>
+                    <div class="discord-card" id="discord-card">
+                        <div class="card-avatar-wrap">
+                            <img id="card-image" src="" alt="Status Image" class="card-image hidden">
+                            <div id="card-equalizer" class="pseudo-equalizer hidden">
+                                <div class="eq-bar"></div>
+                                <div class="eq-bar"></div>
+                                <div class="eq-bar"></div>
+                                <div class="eq-bar"></div>
+                            </div>
+                            <div id="discord-status" class="status-dot"></div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-header-row">
+                                <span class="card-title">Discord</span>
+                                <span id="status-text">Загрузка...</span>
+                            </div>
+                            <div id="card-details" class="card-details hidden"></div>
+                            <div id="card-state" class="card-state hidden"></div>
+                            <div id="card-progress-wrap" class="card-progress-wrap hidden">
+                                <div class="progress-bar">
+                                    <div id="card-progress-fill" class="progress-fill"></div>
+                                </div>
+                                <div class="progress-time">
+                                    <span id="progress-current">0:00</span>
+                                    <span id="progress-total">0:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </header>
 
